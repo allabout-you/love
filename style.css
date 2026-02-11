@@ -202,11 +202,24 @@ body::before {
     box-shadow: 0 5px 15px rgba(255, 159, 67, 0.4);
 }
 
-.btn-proposal-yes {
+/* Button Proposal Fix */
+.btn-proposal-yes, .btn-proposal-think {
     background: linear-gradient(135deg, #48c774, #6dda8f);
     padding: 20px 40px;
     font-size: 1.3rem;
     box-shadow: 0 5px 15px rgba(72, 199, 116, 0.4);
+    min-height: 60px; /* Pastikan tinggi minimal */
+    position: relative;
+    z-index: 100; /* Z-index tinggi */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru di iOS */
+}
+
+.btn-proposal-yes:active, .btn-proposal-think:active {
+    transform: scale(0.98);
 }
 
 .btn-proposal-think {
@@ -214,6 +227,17 @@ body::before {
     padding: 20px 40px;
     font-size: 1.3rem;
     box-shadow: 0 5px 15px rgba(93, 156, 236, 0.4);
+}
+
+/* Pastikan button visible dan clickable */
+.btn-proposal-yes::after, .btn-proposal-think::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
 }
 
 .btn-replay {
@@ -1172,6 +1196,30 @@ body::before {
     display: none !important;
 }
 
+/* Proposal Page Specific Fix */
+#page13 .proposal-options {
+    position: relative;
+    z-index: 10;
+}
+
+#page13 .btn-proposal-yes,
+#page13 .btn-proposal-think {
+    position: relative;
+    z-index: 20;
+    cursor: pointer !important;
+}
+
+/* Pastikan button tidak overlap dengan elemen lain */
+#page13 .page-content {
+    position: relative;
+    z-index: 1;
+}
+
+#page13 .proposal {
+    position: relative;
+    z-index: 2;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .page {
@@ -1289,10 +1337,21 @@ body::before {
         max-width: 100%;
     }
     
-    .btn-proposal-yes,
-    .btn-proposal-think {
-        padding: 18px 30px;
-        font-size: 1.2rem;
+    /* Untuk mobile touch - Button Proposal */
+    .btn-proposal-yes, .btn-proposal-think {
+        min-height: 70px !important;
+        font-size: 1.2rem !important;
+        padding: 20px 30px !important;
+        min-width: 250px !important; /* Lebar minimal untuk jari */
+    }
+    
+    /* Pastikan area klik cukup besar untuk jari */
+    .proposal-options {
+        gap: 20px;
+    }
+    
+    .btn-proposal-yes, .btn-proposal-think {
+        min-width: 250px;
     }
     
     .heart-animation {
@@ -1484,6 +1543,15 @@ body::before {
         font-size: 2.2rem;
     }
     
+    /* Button Proposal untuk ponsel kecil */
+    .btn-proposal-yes, .btn-proposal-think {
+        min-height: 65px !important;
+        font-size: 1.1rem !important;
+        padding: 18px 25px !important;
+        width: 100% !important;
+        min-width: unset !important;
+    }
+    
     /* Adjust spacing for small phones */
     .memory-box,
     .timeline,
@@ -1551,81 +1619,11 @@ body::before {
         min-height: 70vh;
         padding: 30px 20px;
     }
-}
-/* Proposal Page Specific Fix */
-#page13 .proposal-options {
-    position: relative;
-    z-index: 10;
-}
-
-#page13 .btn-proposal-yes,
-#page13 .btn-proposal-think {
-    position: relative;
-    z-index: 20;
-    cursor: pointer !important;
-}
-
-/* Pastikan button tidak overlap dengan elemen lain */
-#page13 .page-content {
-    position: relative;
-    z-index: 1;
-}
-
-#page13 .proposal {
-    position: relative;
-    z-index: 2;
-}
-/* Button Proposal Fix */
-.btn-proposal-yes, .btn-proposal-think {
-    min-height: 60px;
-    position: relative;
-    z-index: 100;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.btn-proposal-yes:active, .btn-proposal-think:active {
-    transform: scale(0.98);
-}
-
-/* Pastikan button visible dan clickable */
-.btn-proposal-yes::after, .btn-proposal-think::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    z-index: -1;
-}
-
-/* Untuk mobile touch */
-@media (max-width: 768px) {
-    .btn-proposal-yes, .btn-proposal-think {
-        min-height: 70px;
-        font-size: 1.2rem !important;
-        padding: 20px 30px !important;
-    }
     
-    /* Pastikan area klik cukup besar untuk jari */
-    .proposal-options {
-        gap: 20px;
-    }
-    
+    /* Button Proposal untuk ponsel sangat kecil */
     .btn-proposal-yes, .btn-proposal-think {
-        min-width: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    .btn-proposal-yes, .btn-proposal-think {
-        min-height: 65px;
-        font-size: 1.1rem !important;
-        padding: 18px 25px !important;
-        width: 100%;
-        min-width: unset;
+        min-height: 60px !important;
+        padding: 16px 20px !important;
+        font-size: 1rem !important;
     }
 }
