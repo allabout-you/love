@@ -41,6 +41,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Event delegation untuk button proposal
+    document.addEventListener('click', function(e) {
+        // Handle proposal buttons
+        if (e.target.closest('#page13 .btn-proposal-yes') || 
+            e.target.closest('#btnYes')) {
+            e.preventDefault();
+            e.stopPropagation();
+            showResponse('yes');
+        }
+        
+        if (e.target.closest('#page13 .btn-proposal-think') || 
+            e.target.closest('#btnThink')) {
+            e.preventDefault();
+            e.stopPropagation();
+            showResponse('think');
+        }
+    });
+    
     // Keyboard navigation
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
@@ -241,6 +259,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function for page 13 proposal response
     window.showResponse = function(responseType) {
+        console.log('Button clicked! Response:', responseType);
+        
         // Save response to localStorage
         localStorage.setItem('userResponse', responseType);
         
@@ -260,6 +280,14 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (responseType === 'think' && responseThink) {
             responseThink.classList.remove('hidden');
         }
+        
+        // Auto scroll to show response
+        setTimeout(() => {
+            const pageContent = document.querySelector('#page14 .page-content');
+            if (pageContent) {
+                pageContent.scrollTop = 0;
+            }
+        }, 100);
     };
     
     // Function to create celebration effects
@@ -319,7 +347,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         // Only create hearts on certain pages
         if (currentPage === 2 || currentPage === 13 || currentPage === 14) {
-            createClickHeart(e.clientX, e.clientY);
+            // Don't create hearts if clicking on buttons
+            if (!e.target.closest('button')) {
+                createClickHeart(e.clientX, e.clientY);
+            }
         }
     });
     
