@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicToggle">
+            <i class="fas fa-music"></i>
+            <span>Music: ON</span>
+        </button>
+        <audio id="backgroundMusic" loop>
+            <source src="https://assets.codepen.io/1468070/romantic-piano.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Pages Container -->
+    <div class="pages-container">
+        <!-- Page 1: Pengantar -->
+        <div class="page active" id="page1">
+            <div class="page-content">
+                <div class="heart-animation">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h1 class="title">Ada Sesuatu untuk Kamu</h1>
+                <p class="subtitle">Website ini dibuat khusus buat kamu yang paling spesial hehee</p>
+                
+                <div class="message-box">
+                    <p>Sebelum mulai, pastikan mood kamu lagi bagus yaa dan siap buat jelajahi ini.</p>
+                    <p><i class="fas fa-lock"></i> jangan kasih tau siapa2 yaa.</p>
+                </div>
+                
+                <div class="instruction">
+                    <p>Klik tombol buat lanjut yaa..</p>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Ayukk mulaii !! <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 2: Valentine -->
+        <div class="page" id="page2">
+            <div class="page-content">
+                <div class="valentine-hearts">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h1 class="title">Selamat Hari Valentine!</h1>
+                <h2 class="valentine-subtitle">Buat kamu yang paling aku sayangg</h2>
+                
+                <div class="quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Meski bukan 14 Februari sekarang, setiap hari bersamamu terasa seperti Valentine</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                
+                <div class="flowers">
+                    <i class="fas fa-spa"></i>
+                    <i class="fas fa-spa"></i>
+                    <i class="fas fa-spa"></i>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Lanjut <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 3: Fitur -->
+        <div class="page" id="page3">
+            <div class="page-content">
+                <h1 class="title">Ada apa saja sih di sini?</h1>
+                
+                <div class="features-container">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3>Gallery</h3>
+                        <p>Kumpulan momen-momen kita</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Timeline Perjalanan</h3>
+                        <p>Cerita dari awal kita kenal sampai sekarang</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Pesan Spesial</h3>
+                        <p>Kata-kata buat kamu hehee</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>Kejutan Kecil</h3>
+                        <p>Ada kejutan khusus nih buat kamuu</p>
+                    </div>
+                </div>
+                
+                <div class="question-box">
+                    <p>Apakah kamu siap menjelajahi website ini?</p>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Siap! <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 4: Selamat Datang -->
+        <div class="page" id="page4">
+            <div class="page-content">
+                <h1 class="title">Haii <span class="highlight-name">Sayanggg</span>!</h1>
+                
+                <div class="welcome-message">
+                    <p>Selamat datang di website kecil-kecilan ini yang aku bikin khusus buat kamu.</p>
+                    <p>Awalnya aku bingung mau bikin ini atau ngga, tapi akhirnya aku coba berani buat deh.</p>
+                    <p>Aku harap kamu suka sama ini, maaff yaa sayangg kalo mungkin alay :).</p>
+                </div>
+                
+                <div class="welcome-illustration">
+                    <i class="fas fa-laptop-code"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-smile-beam"></i>
+                </div>
+                
+                <div class="response-buttons">
+                    <button class="btn-positive" onclick="nextPage()">
+                        Aku suka kok! <i class="fas fa-smile"></i>
+                    </button>
+                    <button class="btn-neutral" onclick="nextPage()">
+                        Lanjut aja <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 5: Awal Pertemuan -->
+        <div class="page" id="page5">
+            <div class="page-content">
+                <h1 class="title">Kamu masih inget ga awal kita kenal?</h1>
+                
+                <div class="memory-box">
+                    <div class="memory-image">
+                        <img src="images/roblox.jpg" alt="Roblox Sakahayang" class="memory-photo">
+                        <p class="photo-caption">Map Sakahayang di Roblox</p>
+                    </div>
+                    
+                    <div class="memory-text">
+                        <p>Kalo ga inget, ini aku kasih tau yaa...</p>
+                        <p class="highlight">Jadi kita pertama kali kenal itu pas main Roblox di map Sakahayang!</p>
+                        <p>Waktu itu kamu add friend aku dan kita main bareng sampe lupa waktu. Lucu ya inget-inget lagi.</p>
+                    </div>
+                </div>
+                
+                <div class="response-buttons">
+                    <button class="btn-positive" onclick="nextPage()">
+                        Iya inget dong! <i class="fas fa-gamepad"></i>
+                    </button>
+                    <button class="btn-neutral" onclick="nextPage()">
+                        Baru inget sekarang <i class="fas fa-lightbulb"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 6: Timeline -->
+        <div class="page" id="page6">
+            <div class="page-content">
+                <h1 class="title">Perjalanan Kita</h1>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">15 Januari 2023</div>
+                        <div class="timeline-content">
+                            <i class="fas fa-gamepad"></i>
+                            <h3>Pertama kali main Roblox bareng</h3>
+                            <p>Di map Sakahayang, kita berkenalan dan langsung klik</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">20 Januari 2023</div>
+                        <div class="timeline-content">
+                            <i class="fas fa-comment-dots"></i>
+                            <h3>Mulai chat di DM Roblox</h3>
+                            <p>Chat pertama kita tentang strategi main game</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">25 Januari 2023</div>
+                        <div class="timeline-content">
+                            <i class="fab fa-instagram"></i>
+                            <h3>Mutualan Instagram</h3>
+                            <p>Akhirnya tahu wajah asli satu sama lain</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">1 Februari 2023</div>
+                        <div class="timeline-content">
+                            <i class="fab fa-whatsapp"></i>
+                            <h3>Tukar nomor WhatsApp</h3>
+                            <p>Bisa chat lebih lancar dan kirim voice note</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">10 Februari 2023</div>
+                        <div class="timeline-content">
+                            <i class="fab fa-tiktok"></i>
+                            <h3>Follow TikTok masing-masing</h3>
+                            <p>Saling kirim video lucu dan tren</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">14 Februari 2023</div>
+                        <div class="timeline-content">
+                            <i class="fas fa-video"></i>
+                            <h3>Video call pertama</h3>
+                            <p>Nervous banget tapi seru akhirnya bisa lihat langsung</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Lanjut yuk! <i class="fas fa-history"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 7: Konfirmasi Lanjut -->
+        <div class="page" id="page7">
+            <div class="page-content">
+                <h1 class="title">Kamu masih pengen lanjut ngejelajah website ini?</h1>
+                
+                <div class="confirmation-box">
+                    <div class="confirmation-options">
+                        <button class="btn-yes" onclick="nextPage()">
+                            <i class="fas fa-heart"></i> Masih dong!
+                        </button>
+                        <button class="btn-no" onclick="showMessage()">
+                            <i class="fas fa-pause"></i> Udahan dulu
+                        </button>
+                    </div>
+                    
+                    <div id="pauseMessage" class="hidden">
+                        <div class="message-box">
+                            <p>Yaudah kapan-kapan lanjut lagi ya 😊</p>
+                            <p>Tapi... masih ada yang menarik loh di halaman selanjutnya!</p>
+                            <button class="btn-next" onclick="nextPage()">Ok deh lanjut!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 8: Momen Bersama -->
+        <div class="page" id="page8">
+            <div class="page-content">
+                <h1 class="title">Momen-momen Kita</h1>
+                <p class="subtitle">Ini momen-momen dari awal kita kenal sampe kita main bareng. Seru-seru ya inget-inget lagi!</p>
+                
+                <div class="moments-container">
+                    <div class="gallery-item">
+                        <img src="images/moment1.jpg" alt="Momen kita pertama main" class="gallery-photo">
+                        <p class="gallery-caption">Pas kita pertama kali voice chat, kamu malu-malu banget. Suaramu kecil banget, lucu deh!</p>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/moment2.jpg" alt="Main game horror" class="gallery-photo">
+                        <p class="gallery-caption">Waktu kita coba game horror, kamu teriak-teriak lucu banget. Aku ketawa terus dengernya!</p>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/moment3.jpg" alt="Main sampai subuh" class="gallery-photo">
+                        <p class="gallery-caption">Saat kita main game sampe subuh, ngantuk tapi gamau berhenti. Besoknya ngantuk di sekolah/kuliah!</p>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/moment4.jpg" alt="Ulang tahun di game" class="gallery-photo">
+                        <p class="gallery-caption">Aku inget waktu ulang tahun kamu, kita main game spesial dan aku kasih hadiah dalam game!</p>
+                    </div>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Gemesss lanjut! <i class="fas fa-grin-squint"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 9: Foto-foto Lucu -->
+        <div class="page" id="page9">
+            <div class="page-content">
+                <h1 class="title">Foto-foto Kamu yang Gemesin!</h1>
+                <p class="subtitle">Ini foto-foto kamu yang paling lucu dan bikin aku senyum-senyum sendiri (dengan izin kamu ya!)</p>
+                
+                <div class="photo-gallery">
+                    <div class="photo-container">
+                        <div class="photo-frame">
+                            <img src="images/photo1.jpg" alt="Foto kamu ketawa" class="real-photo">
+                        </div>
+                        <p class="photo-caption">Pas lagi seneng dapat item langka di game!</p>
+                    </div>
+                    
+                    <div class="photo-container">
+                        <div class="photo-frame">
+                            <img src="images/photo2.jpg" alt="Foto kamu kesel" class="real-photo">
+                        </div>
+                        <p class="photo-caption">Waktu kalah terus-terusan di game!</p>
+                    </div>
+                    
+                    <div class="photo-container">
+                        <div class="photo-frame">
+                            <img src="images/photo3.jpg" alt="Foto kamu kaget" class="real-photo">
+                        </div>
+                        <p class="photo-caption">Pas dapat kejutan dari aku di game!</p>
+                    </div>
+                    
+                    <div class="photo-container">
+                        <div class="photo-frame">
+                            <img src="images/photo4.jpg" alt="Foto kamu nyeleneh" class="real-photo">
+                        </div>
+                        <p class="photo-caption">Bikin muka lucu pas video call!</p>
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <p><i class="fas fa-camera"></i> <em>Foto asli bisa kamu tambahkan sendiri nanti ya!</em></p>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Ada lagi nih... <i class="fas fa-images"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 10: Permintaan Maaf -->
+        <div class="page" id="page10">
+            <div class="page-content">
+                <h1 class="title">Aku pernah bikin kamu marah juga sih...</h1>
+                <p class="subtitle">Ini aku list kesalahan aku yang bikin kamu kesel. Aku minta maaf ya:</p>
+                
+                <div class="apology-list">
+                    <div class="apology-item">
+                        <div class="apology-number">1</div>
+                        <div class="apology-text">
+                            <h3>Cancel janji main mendadak</h3>
+                            <p>Waktu itu aku ada urusan dadakan harus pergi, padahal kita udah janji main lama</p>
+                        </div>
+                    </div>
+                    
+                    <div class="apology-item">
+                        <div class="apology-number">2</div>
+                        <div class="apology-text">
+                            <h3>Pas lagi seru main, aku harus pergi</h3>
+                            <p>Ada beberapa kali kita lagi asik-asiknya main, tapi aku harus berhenti karena ada acara keluarga</p>
+                        </div>
+                    </div>
+                    
+                    <div class="apology-item">
+                        <div class="apology-number">3</div>
+                        <div class="apology-text">
+                            <h3>Kadang slow respon chat</h3>
+                            <p>Aku tau kamu nunggu reply aku, tapi kadang aku sibuk dan baru bisa balas lama</p>
+                        </div>
+                    </div>
+                    
+                    <div class="apology-item">
+                        <div class="apology-number">4</div>
+                        <div class="apology-text">
+                            <h3>Pernah lupa tanggal penting</h3>
+                            <p>Aku minta maaf waktu itu aku lupa hari ulang tahun karakter favorit kamu di game</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="apology-closing">
+                    <p>Aku berusaha jadi lebih baik buat kamu. Janji deh!</p>
+                    <i class="fas fa-handshake"></i>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Gapapa kok <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 11: Pertanyaan Realitas -->
+        <div class="page" id="page11">
+            <div class="page-content">
+                <h1 class="title">sayangg, aku boleh tanya sesuatu...</h1>
+                
+                <div class="question-container">
+                    <div class="question-bubble">
+                        <p>"Hubungan kita ini sebenernya apa sih?"</p>
+                    </div>
+                    
+                    <div class="question-details">
+                        <p>Kita kan udah kenal lama, main bareng terus, cerita-cerita banyak hal...</p>
+                        <p>Tapi aku penasaran, di mata kamu, kita ini apa?</p>
+                    </div>
+                    
+                    <div class="thinking-emoji">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Lanjut... <i class="fas fa-question-circle"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 12: Ungkapan Perasaan -->
+        <div class="page" id="page12">
+            <div class="page-content">
+                <h1 class="title">emm sebenarnyaa...</h1>
+                
+                <div class="confession">
+                    <div class="confession-text">
+                        <p>aku sebenernya kepikiran terus tentang kita, emm hubungan kita itu sebenernya kamu anggepnya apa sayangg?</p>
+                        <p>aku selalu kepikiran itu, dan aku hariini mau mastiin ke kamu</p>
+                        
+                        <div class="confession-reasons">
+                            <div class="reason">
+                                <i class="fas fa-sun"></i>
+                                <p>setiap hari kita call, cerita-cerita dan itu bikin hariku makin cerah dan berwarna</p>
+                            </div>
+                            
+                            <div class="reason">
+                                <i class="fas fa-comments"></i>
+                                <p>ngga ada yang selalu ku tunggu setiap hari, kecuali notif chat atau call dari kamu</p>
+                            </div>
+                            
+                            <div class="reason">
+                                <i class="fas fa-music"></i>
+                                <p>ngga ada suara yang aku suka dengerin, kecuali itu suara kamu, aku suka bangett</p>
+                            </div>
+                            
+                            <div class="reason">
+                                <i class="fas fa-star"></i>
+                                <p>ngga ada sesuatu yang lebih aku suka lakuin, kecuali kalo itu sama kamu</p>
+                            </div>
+                        </div>
+                        
+                        <p class="confession-final">aku cuma pengen mastiin, hubungan kita di mata kamu itu seperti apa</p>
+                    </div>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    terus...<i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 12a: Pesan Khusus tentang Masa Lalu dan Komitmen -->
+        <div class="page" id="page12a">
+            <div class="page-content">
+                <h1 class="title">Ada yang pengen aku jelasin...</h1>
+                
+                <div class="special-message">
+                    <div class="message-bubble">
+                        <p><i class="fas fa-heart"></i> Oiyaa sayangg...</p>
+                    </div>
+                    
+                    <div class="message-content">
+                        <p>Kamu pasti udah tau tentang orang dulu aku, dan aku juga udah pernah jelasin ke kamu.</p>
+                        
+                        <div class="important-point">
+                            <i class="fas fa-history"></i>
+                            <p>Tapi itu <span class="highlight-text">masa lalu</span>, sayang.</p>
+                        </div>
+                        
+                        <div class="important-point">
+                            <i class="fas fa-user-heart"></i>
+                            <p>Dan <span class="highlight-text">sekarang aku punya kamu</span>.</p>
+                        </div>
+                        
+                        <div class="personal-box">
+                            <p><i class="fas fa-star"></i> <strong>Aku udah bangga banget sekarang punya kamu.</strong></p>
+                            <p><i class="fas fa-gift"></i> Aku treat kamu sekarang ugal-ugalan, dan itu gapernah aku kasih ke yang lain.</p>
+                            <p><i class="fas fa-heartbeat"></i> Jadi yeahh, ini bener-bener baru dan berbeda.</p>
+                        </div>
+                        
+                        <div class="commitment">
+                            <div class="commitment-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="commitment-text">
+                                <h3>Kenapa aku berani lakuin ini?</h3>
+                                <p>Karena aku yakin kamu orang yang paling tepat.</p>
+                                <p><strong>Aku maunya kamu, gamau yang lain.</strong></p>
+                            </div>
+                        </div>
+                        
+                        <div class="final-statement">
+                            <p><i class="fas fa-hand-holding-heart"></i> <span class="emotional-text">Aku bangga punya kamu.</span></p>
+                            <p><i class="fas fa-sun"></i> <span class="emotional-text">Aku bersyukur bisa deket sama kamu.</span></p>
+                            <p><i class="fas fa-infinity"></i> <span class="emotional-text">Aku mau kamu jadi bagian dari hidup aku.</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="message-footer">
+                        <p class="signature-line">- Yang selalu jujur sama kamu -</p>
+                    </div>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Lanjut... <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 13: Pertanyaan Utama -->
+        <div class="page" id="page13">
+            <div class="page-content">
+                <div class="proposal">
+                    <h1 class="proposal-title">
+                        <span class="name-placeholder">jadi gini sayangg, biar lebih pasti...</span>, 
+                        <br>emm...kamu mau ngga jadi pacarku?
+                    </h1>
+                    
+                    <div class="proposal-hearts">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    
+                    <div class="proposal-options">
+                        <button class="btn-proposal-yes" onclick="showResponse('yes')">
+                            <i class="fas fa-heart"></i> jelas mauu dong!!
+                        </button>
+                        <button class="btn-proposal-think" onclick="showResponse('think')">
+                            <i class="fas fa-clock"></i> emmm aku mikir dulu ya...
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 14: Respons -->
+        <div class="page" id="page14">
+            <div class="page-content">
+                <!-- Versi Yes -->
+                <div id="response-yes" class="hidden">
+                    <div class="celebration">
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        <div class="confetti"></div>
+                        
+                        <h1 class="title">yeaayyyy benerann ini sayangg?! ❤️</h1>
+                        
+                        <div class="celebration-message">
+                            <p>aku seneng banget tauu pas kamu jawab mau</p>
+                            <p><i class="fas fa-handshake"></i> janji yaa kita saling jaga perasaan sayangg</p>
+                            <p><i class="fas fa-handshake"></i> aku akan selalu support kamu, apapun keadaannya</p>
+                            <p><i class="fas fa-handshake"></i> jangan tinggalin aku yaa sayangg :(</p>
+                            <p><i class="fas fa-star"></i> aku bakal berusaha jadi yang terbaik buat kamu</p>
+                            <p><i class="fas fa-gamepad"></i> aku bangga bangett punya cewe kayak kamu🥺🥺</p>
+                        </div>
+                        
+                        <div class="celebration-heart">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Versi Think -->
+                <div id="response-think" class="hidden">
+                    <div class="understanding">
+                        <h1 class="title">gapapa kok sayangg, aku ngerti</h1>
+                        
+                        <div class="understanding-message">
+                            <p>aku bakal tunggu jawaban kamu</p>
+                            <p>yang penting kita masih tetep bisa:</p>
+                            
+                            <div class="understanding-list">
+                                <p><i class="fas fa-check-circle"></i> ketemu lagii</p>
+                                <p><i class="fas fa-check-circle"></i> cerita-cerita</p>
+                                <p><i class="fas fa-check-circle"></i> call tiap hari</p>
+                                <p><i class="fas fa-check-circle"></i> saling support</p>
+                            </div>
+                            
+                            <p class="reassurance">apapun keputusan kamu, kita masih bisa bareng-bareng lagi kok🙂</p>
+                        </div>
+                        
+                        <div class="understanding-smile">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-next" onclick="nextPage()">
+                    Lanjut ke akhir <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 15: Penutup -->
+        <div class="page" id="page15">
+            <div class="page-content">
+                <h1 class="title">terimakasiii sayanggkuu cintaa ❤️</h1>
+                
+                <div class="closing-message">
+                    <p>makasiiii yaa sayangg udah mau ngeluangin waktu buat ngejelajah website ini sampe selesai</p>
+                    
+                    <div class="closing-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>apapun jawaban kamu, aku selalu bersyukur dan selalu senengg bisa kenal sama orang sebaik, secantik, dan semenggemaskan kamu</p>
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    
+                    <div class="final-wish">
+                        <p>stay amazing ya!</p>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="signature">
+                    <p>From,</p>
+                    <h2>Ahmad Ihda Falah Annur</h2>
+                </div>
+                
+                <div class="replay-option">
+                    <button class="btn-replay" onclick="restartJourney()">
+                        <i class="fas fa-redo"></i> Lihat lagi dari awal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="navigation-dots">
+        <!-- Dots akan di-generate oleh JavaScript -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
