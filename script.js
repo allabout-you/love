@@ -1,9 +1,10 @@
 // Website Untuk Dia - Interactive Script (Final)
+// Modified: Skip page 12a,直接从 page 12 ke page 13
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize variables
     let currentPage = 1;
-    const totalPages = 16; // Sekarang 16 halaman (ditambah halaman 12a)
+    const totalPages = 16; // Tetap 16 halaman total
     let musicPlaying = true;
     let touchStartX = 0;
     let touchStartY = 0;
@@ -120,11 +121,18 @@ document.addEventListener('DOMContentLoaded', function() {
         dots.forEach(dot => {
             dot.classList.remove('active');
             
-            // Handle special case for page 12a (it's page 12.5)
+            // Handle special cases
             let pageNum = parseInt(dot.dataset.page);
-            if (currentPage === 12.5 && pageNum === 13) {
+            
+            // Skip page 12a in navigation dots
+            if (currentPage === pageNum) {
                 dot.classList.add('active');
-            } else if (currentPage === pageNum) {
+            }
+            
+            // Handle transition between page 12 and 13
+            if (currentPage === 12 && pageNum === 12) {
+                dot.classList.add('active');
+            } else if (currentPage === 13 && pageNum === 13) {
                 dot.classList.add('active');
             }
         });
@@ -132,12 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to update progress bar
     function updateProgressBar() {
-        let progress;
-        if (currentPage === 12.5) {
-            progress = (12.5 / totalPages) * 100;
-        } else {
-            progress = (currentPage / totalPages) * 100;
-        }
+        let progress = (currentPage / totalPages) * 100;
         const progressBar = document.getElementById('progressBar');
         if (progressBar) {
             progressBar.style.width = `${progress}%`;
@@ -151,20 +154,13 @@ document.addEventListener('DOMContentLoaded', function() {
             page.classList.remove('active');
         });
         
-        // Handle special case for page 12a
-        let pageId;
-        if (pageNumber === 12.5 || pageNumber === '12a') {
-            pageId = 'page12a';
-            currentPage = 12.5;
-        } else {
-            pageId = `page${pageNumber}`;
-            currentPage = pageNumber;
-        }
-        
         // Show the requested page
+        const pageId = `page${pageNumber}`;
         const pageToShow = document.getElementById(pageId);
+        
         if (pageToShow) {
             pageToShow.classList.add('active');
+            currentPage = pageNumber;
             
             // Scroll to top of the page content
             setTimeout(() => {
@@ -197,17 +193,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to go to a specific page
     function goToPage(pageNumber) {
         if (pageNumber >= 1 && pageNumber <= totalPages) {
-            // Handle page 12a special case
-            if (pageNumber === 13) {
-                // If user clicks dot 13, we need to check if we should go to 12a or 13
-                if (currentPage === 12) {
-                    currentPage = 12.5;
-                    showPage('12a');
-                } else {
-                    currentPage = 13;
-                    showPage(13);
-                }
-            } else if (pageNumber === 12) {
+            // Skip page 12a in navigation
+            if (pageNumber === 13 && currentPage === 12) {
+                // Jika dari page 12 ke page 13, langsung
+                currentPage = 13;
+                showPage(13);
+            } else if (pageNumber === 12 && currentPage === 13) {
+                // Jika dari page 13 ke page 12, langsung
                 currentPage = 12;
                 showPage(12);
             } else {
@@ -217,14 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to go to next page
+    // Function to go to next page (MODIFIED - skip page 12a)
     window.nextPage = function() {
         if (currentPage === 12) {
-            // From page 12 go to page 12a
-            currentPage = 12.5;
-            showPage('12a');
-        } else if (currentPage === 12.5) {
-            // From page 12a go to page 13
+            // From page 12 langsung ke page 13 (skip page 12a)
             currentPage = 13;
             showPage(13);
         } else if (currentPage < totalPages) {
@@ -233,14 +221,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Function to go to previous page
+    // Function to go to previous page (MODIFIED - skip page 12a)
     function prevPage() {
         if (currentPage === 13) {
-            // From page 13 go to page 12a
-            currentPage = 12.5;
-            showPage('12a');
-        } else if (currentPage === 12.5) {
-            // From page 12a go to page 12
+            // From page 13 langsung kembali ke page 12
             currentPage = 12;
             showPage(12);
         } else if (currentPage > 1) {
@@ -425,4 +409,5 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Website Untuk Dia loaded successfully! ❤️');
     console.log('Total pages:', totalPages);
     console.log('Current page:', currentPage);
+    console.log('Navigation: Page 12 -> langsung ke Page 13 (skip page 12a)');
 });
